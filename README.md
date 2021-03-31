@@ -57,7 +57,7 @@ Feito isso vamos configurar nossa fábrica de persistência da seguinte maneira 
 <em>persistence.xml</em>
 
 ```
-  <persistence-unit name=”c_jpa”>
+<persistence-unit name=”c_jpa”>
 <provider>org.hibernate.ejb.HibernatePersistence</provider><class>servlet.model.Usuario</class>
 <properties>
 <property name=”hibernate.show_sql” value=”true” />
