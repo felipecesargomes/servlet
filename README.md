@@ -6,7 +6,8 @@ Link Externo: https://felipece7.medium.com/utilizando-servlet-puro-82e55ab32fbe
 ## Persistindo dados com JPA+Servlets
 
 De um ano pra cá venho estudando desenvolvimento de sistemas web, nos últimos meses tenho me aventurando no SERVLET. Em um certo momento cheguei a fazer uma indagação para mim mesmo, será que estudar uma tecnologia legada para quem está praticamente iniciando não seria uma perda de tempo? Agora ao meu ver, não é! Tentarei explicar um pouco do que eu entendi sobre servlet, portanto sinta-se livre para comentar qualquer coisa (dicas, sugestões, correções). Obs: O exemplo prático utilizado é bem simples.
-Em janeiro de 2020 eu retornei a estudar JAVA utilizando alguns frameworks, dentre eles: springboot e Spring DataJPA. Desenvolvi um sistema bem simples de nutrição no qual está no meu repositório do github.
+
+Em janeiro de 2020 eu retornei a estudar JAVA utilizando alguns frameworks, dentre eles: springboot e Spring DataJPA. Desenvolvi um sistema bem simples de nutrição no qual está no <a href="https://github.com/felipecesargomes/PROJETO-POSWEB-T52020-FELIPE-CESAR-GOMES">meu repositório do github</a>.
 Inicialmente dois motivos me levaram a também estudar servlet, um é o fato de que eu não o conhecia bem e sentia que devia aprender algo sobre :), o outro e mais importante … eu queria trabalhar com as requisições e resposta mais de perto. No JAVA WEB tudo possui Servlet, os frameworks mais conhecidos utilizam api servlet por debaixo dos panos, o JavaServer Faces ou o famoso JSF, por exemplo, usa o FacesServlet em seu controlador. Uma das diferenças é que vai haver um alto nível de abstração no tratamento do HTTP request/response, logo o JSF possui uma gama de conversores, validadores prontos que irá auxiliar no desenvolvimento além do mesmo cuidar do ciclo de vida do servlet.
 
 ### Arquitetura do Servlet
@@ -54,7 +55,7 @@ Configure >> Convert to JPA Project
 
 Feito isso vamos configurar nossa fábrica de persistência da seguinte maneira … sempre passando um provider e a configuração detalhada de conexão com o banco de dados postgres.
 
-<em>persistence.xml</em>
+<em><i>persistence.xml</i></em>
 
 ```
 <persistence-unit name=”c_jpa”>
@@ -74,7 +75,7 @@ Feito isso vamos configurar nossa fábrica de persistência da seguinte maneira 
 
 É necessário acrescentar as seguintes dependências:
 
-<em>pom.xml</em>
+<em><i>pom.xml</i></em>
 
 ```
 <dependency>
@@ -110,7 +111,7 @@ Na pasta de código fonte criei os seguintes pacotes: servlet.model, servlet.ser
 
 No pacote util vai ter a criação de um classe chamada JpaUtil com o padrão singleton, que visa instanciar um único EntityManager e utiliza-lo sempre que for preciso enquanto o mesmo estiver aberto.
 
-<em>JpaUtil.java</em>
+<em><i>JpaUtil.java</i></em>
 
 ```
 package servlet.util;
@@ -133,7 +134,7 @@ return em;
 
 Na camada modelo vamos criar a classe entidade básica para Usuário, utilizando as seguintes anotações: @Entity, @Id, @GeneratedValue
 
-<em>Usuario.java</em>
+<em><i>Usuario.java</i></em>
 
 ```
 package servlet.model;
@@ -164,7 +165,7 @@ this.nome = nome;
 
 Agora para fazer a persistência no banco de dados será utilizado o padrão DAO Generics.
 
-<em>DaoGenerico.java</em>
+<em><i>DaoGenerico.java</i></em>
 
 ```
 package servlet.dao;
@@ -186,7 +187,7 @@ Não entrarei em detalhes sobre como utilizar a biblioteca de persistência, em 
 
 Na pasta WebContent foi criado um arquivo index.jsp bem simples por sinal, com o seguinte código:
 
-<em>index.jsp</em>
+<em><i>index.jsp</i></em>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -223,7 +224,7 @@ Para o funcionamento básico do servlet é necessário sobrescrever pelo menos u
 
 Segue o código da classe servlet que será utilizada.
 
-<em>UsuarioServlet.java</em>
+<em><i>UsuarioServlet.java</i></em>
 
 ```
 package servlet.servlets;
@@ -262,7 +263,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 
 ### Criando a View de Sucesso
 
-<em>usuariocadastrado.jsp</em>
+<em><i>usuariocadastrado.jsp</i></em>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
