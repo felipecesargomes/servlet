@@ -56,7 +56,7 @@ Configure >> Convert to JPA Project
 
 Feito isso vamos configurar nossa fábrica de persistência da seguinte maneira … sempre passando um provider e a configuração detalhada de conexão com o banco de dados postgres.
 
-<em><i>persistence.xml</i></em>
+<i><em>persistence.xml</em></i>
 
 ```
 <persistence-unit name=”c_jpa”>
@@ -76,7 +76,7 @@ Feito isso vamos configurar nossa fábrica de persistência da seguinte maneira 
 
 É necessário acrescentar as seguintes dependências:
 
-<em><i>pom.xml</i></em>
+<i><em>pom.xml</em></i>
 
 ```
 <dependency>
@@ -112,7 +112,7 @@ Na pasta de código fonte criei os seguintes pacotes: <b>servlet.model</b>, <b>s
 
 No pacote util vai ter a criação de um classe chamada JpaUtil com o padrão <b>singleton</b>, que visa instanciar um único EntityManager e utiliza-lo sempre que for preciso enquanto o mesmo estiver aberto.
 
-<em><i>JpaUtil.java</i></em>
+<i><em>JpaUtil.java</em></i>
 
 ```
 package servlet.util;
@@ -135,7 +135,7 @@ return em;
 
 Na camada modelo vamos criar a classe entidade básica para Usuário, utilizando as seguintes anotações: <b>@Entity</b>, <b>@Id</b>, <b>@GeneratedValue</b>
 
-<em><i>Usuario.java</i></em>
+<i><em>Usuario.java</em></i>
 
 ```
 package servlet.model;
@@ -166,7 +166,7 @@ this.nome = nome;
 
 Agora para fazer a persistência no banco de dados será utilizado o padrão DAO Generics.
 
-<em><i>DaoGenerico.java</i></em>
+<i><em>DaoGenerico.java</em></i>
 
 ```
 package servlet.dao;
@@ -188,7 +188,7 @@ Não entrarei em detalhes sobre como utilizar a biblioteca de persistência, em 
 
 Na pasta WebContent foi criado um arquivo index.jsp bem simples por sinal, com o seguinte código:
 
-<em><i>index.jsp</i></em>
+<i><em>index.jsp</em></i>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -225,7 +225,7 @@ Para o funcionamento básico do servlet é necessário sobrescrever pelo menos u
 
 Segue o código da classe servlet que será utilizada.
 
-<em><i>UsuarioServlet.java</i></em>
+<i><em>UsuarioServlet.java</em></i>
 
 ```
 package servlet.servlets;
@@ -264,7 +264,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 
 ### Criando a View de Sucesso
 
-<em><i>usuariocadastrado.jsp</i></em>
+<i><em>usuariocadastrado.jsp</em></i>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
