@@ -8,13 +8,14 @@ Link Externo: https://felipece7.medium.com/utilizando-servlet-puro-82e55ab32fbe
 De um ano pra cá venho estudando desenvolvimento de sistemas web, nos últimos meses tenho me aventurando no SERVLET. Em um certo momento cheguei a fazer uma indagação para mim mesmo, será que estudar uma tecnologia legada para quem está praticamente iniciando não seria uma perda de tempo? Agora ao meu ver, não é! Tentarei explicar um pouco do que eu entendi sobre servlet, portanto sinta-se livre para comentar qualquer coisa (dicas, sugestões, correções). Obs: O exemplo prático utilizado é bem simples.
 
 Em janeiro de 2020 eu retornei a estudar JAVA utilizando alguns frameworks, dentre eles: springboot e Spring DataJPA. Desenvolvi um sistema bem simples de nutrição no qual está no <a href="https://github.com/felipecesargomes/PROJETO-POSWEB-T52020-FELIPE-CESAR-GOMES">meu repositório do github</a>.
+
 Inicialmente dois motivos me levaram a também estudar servlet, um é o fato de que eu não o conhecia bem e sentia que devia aprender algo sobre :), o outro e mais importante … eu queria trabalhar com as requisições e resposta mais de perto. No JAVA WEB tudo possui Servlet, os frameworks mais conhecidos utilizam api servlet por debaixo dos panos, o JavaServer Faces ou o famoso JSF, por exemplo, usa o FacesServlet em seu controlador. Uma das diferenças é que vai haver um alto nível de abstração no tratamento do HTTP request/response, logo o JSF possui uma gama de conversores, validadores prontos que irá auxiliar no desenvolvimento além do mesmo cuidar do ciclo de vida do servlet.
 
 ### Arquitetura do Servlet
 
 <img src="https://miro.medium.com/max/700/0*ekKkBHtFr8b47CYQ.png" />
 
-O servlet trabalha basicamente com dois objetos que são do tipo HttpServletResponse e HttpServletRequest, quando o cliente que encontra-se no lado do navegador solicita através da URL o acesso ao servlet o container irá criar dois objetos, um para HttpServletRequest com dados/parâmetros da requisição e e outro para HttpServletResponse com o corpo da resposta.
+O servlet trabalha basicamente com dois objetos que são do tipo <b>HttpServletResponse</b> e <b>HttpServletRequest</b>, quando o cliente que encontra-se no lado do navegador solicita através da URL o acesso ao servlet o container irá criar dois objetos, um para HttpServletRequest com dados/parâmetros da requisição e e outro para HttpServletResponse com o corpo da resposta.
 
 ### VAMOS PRA PRÁTICA!
 
@@ -107,9 +108,9 @@ Feito isso vamos configurar nossa fábrica de persistência da seguinte maneira 
 
 ### Criando o código fonte
 
-Na pasta de código fonte criei os seguintes pacotes: servlet.model, servlet.servlets, servlet.dao, servlet.util.
+Na pasta de código fonte criei os seguintes pacotes: <b>servlet.model</b>, <b>servlet.servlets</b>, <b>servlet.dao</b>, <b>servlet.util</b>.
 
-No pacote util vai ter a criação de um classe chamada JpaUtil com o padrão singleton, que visa instanciar um único EntityManager e utiliza-lo sempre que for preciso enquanto o mesmo estiver aberto.
+No pacote util vai ter a criação de um classe chamada JpaUtil com o padrão <b>singleton</b>, que visa instanciar um único EntityManager e utiliza-lo sempre que for preciso enquanto o mesmo estiver aberto.
 
 <em><i>JpaUtil.java</i></em>
 
@@ -132,7 +133,7 @@ return em;
 }
 ```
 
-Na camada modelo vamos criar a classe entidade básica para Usuário, utilizando as seguintes anotações: @Entity, @Id, @GeneratedValue
+Na camada modelo vamos criar a classe entidade básica para Usuário, utilizando as seguintes anotações: <b>@Entity</b>, <b>@Id</b>, <b>@GeneratedValue</b>
 
 <em><i>Usuario.java</i></em>
 
@@ -181,7 +182,7 @@ em.getTransaction().commit();
 }
 ```
 
-Não entrarei em detalhes sobre como utilizar a biblioteca de persistência, em um outro artigo pretendo falar. A documentação do mesmo pode ser rapidamente encontrado aqui.
+Não entrarei em detalhes sobre como utilizar a biblioteca de persistência, em um outro artigo pretendo falar. A documentação do mesmo pode ser rapidamente encontrado <a href="https://docs.jboss.org/hibernate/orm/5.4/quickstart/html_single/">aqui</a>.
 
 ### Criando a View Inicial
 
@@ -254,7 +255,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 ```
 
 <ul>
-  <li>A anotação @WebServlet marca tal classe como um Servlet e seu url pattern será /usuario, ou seja quando tiver uma chamada na URL com esse mapeamento o container se responsabilizará por encaminhar a requisição para esse Servlet.</li>
+  <li>A anotação @WebServlet marca tal classe como um Servlet e seu url pattern será <b>/usuario</b>, ou seja quando tiver uma chamada na URL com esse mapeamento o container se responsabilizará por encaminhar a requisição para esse Servlet.</li>
   <li>Através do objeto request do tipo HttpServletRequest, é possível capturar o parâmetro que foi passado no corpo da requisição através do método getParameter.</li>
   <li>É instanciado um objeto Usuario e setado com o valor que foi recebido, e depois utilizado no Dao Genérico para realizar a persistência na base teste do banco de dados.</li>
   <li>Para exibir uma mensagem de sucesso simples, anexei um Atributo para a requisição através do método setAttribute().</li>
@@ -284,4 +285,4 @@ O <c:out> serve para escrever algo com o JSTL, sempre é possível pegar um atri
 
 ### Finalização
 
-Nesse pequeno tutorial foi criado rapidamente um cadastro bem simples, que também pode ser encontrado no meu repositório, clicando aqui.
+Nesse pequeno tutorial foi criado rapidamente um cadastro bem simples.
